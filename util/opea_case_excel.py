@@ -1,11 +1,16 @@
 #coding:utf-8
 import xlrd
+import os
+work_path = os.path.abspath('.')
+
 class OperaCaseExcel(object):
 
 	def get_case_excel_name(self):
 		res = []
 		# opear = OperationJson()
-		test_record = xlrd.open_workbook('../data_config/TestRecordExcel/test.xlsx')
+		excel_path = os.path.join(work_path,r'data_config\TestRecordExcel\test.xlsx')
+		path = excel_path.replace('\\','/')
+		test_record = xlrd.open_workbook(path)
 		table = test_record.sheets()[0]
 		#获取Excel的个数
 		excel_acount = table.nrows
@@ -17,11 +22,14 @@ class OperaCaseExcel(object):
 				json_name = table.cell_value(i,2)
 				res.append(case_name)
 				res.append(json_name)
-				# print(res[0],res[1])
+				print(res[0],res[1])
 		return res
 
+
 	def get_case_json_name(self):
-		test_record = xlrd.open_workbook('../data_config/TestRecordExcel/test.xlsx')
+		excel_path = os.path.join(work_path, r'data_config\TestRecordExcel\test.xlsx')
+		path = excel_path.replace('\\', '/')
+		test_record = xlrd.open_workbook(path)
 		table = test_record.sheets()[1]
 		#获取Excel的个数
 		excel_acount = table.nrows
@@ -30,10 +38,9 @@ class OperaCaseExcel(object):
 			if table.cell_value(i,0) == file_name:
 				#获取case_excel_name
 				res = table.cell_value(i,1)
-				print(res)
 		return res
 
 if __name__ == '__main__':
 	o = OperaCaseExcel()
 	o.get_case_excel_name()
-	# o.get_case_json_name()
+	o.get_case_json_name()

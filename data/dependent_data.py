@@ -1,6 +1,5 @@
 #coding:utf-8
 import sys
-sys.path.append('F:/interface')
 import json
 from util.operation_excel import OperationExcel
 from base.run_main import RunMain
@@ -8,21 +7,17 @@ from data.get_data import GetData
 from jsonpath_rw import jsonpath,parse
 
 class DependentData(object):
-
 	def __init__(self,case_id):
 		self.case_id = case_id
 		self.data = GetData()
 		self.opera_excel = OperationExcel()
-
 	#通过case_id获取case_id的整行数据
 	def get_case_id_data(self):
 		rows_data = self.opera_excel.get_row_data(self.case_id)
 		# print(rows_data)
 		return rows_data
-
 	#执行依赖case，获取依赖返回数据
 	def run_dependent_case(self):
-		
 		#获取行号
 		row = self.opera_excel.get_row_num(self.case_id)
 		dependent_url = self.data.get_request_url(row)

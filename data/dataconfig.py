@@ -1,5 +1,4 @@
 #coding:utf-8
-
 class dataconfig:
 	def get_id():
 		return 0

@@ -1,6 +1,5 @@
 #coding:utf-8
 import sys
-sys.path.append('G:/inter')
 import time
 
 class CommonUtil(object):

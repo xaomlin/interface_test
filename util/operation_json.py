@@ -3,25 +3,18 @@
 from util.opea_case_excel import OperaCaseExcel
 import json
 import os
+work_path = os.path.abspath('.')
 
 class OperationJson(object):
-	#获取测试ExcelName
-	# file_name = OperaCaseExcel()
-	#在Excel表中获取json文件
-	# test_record = xlrd.open_workbook('../data_config/TestRecordExcel/test.xlsx')
-	# 
-	
-
 	def __init__(self,json_files = None):
 		#获取json文件名
 		oc = OperaCaseExcel()
 		res = oc.get_case_excel_name()
 		json_files = res[1]
 		if json_files:
-			self.json_files = '../data_config/'+ json_files
+			self.json_files = os.path.join(work_path,'data_config',json_files)
 		else:
-			self.json_files = '../data_config/interface.json'
-
+			self.json_files = os.path.join(work_path,'data_config/interface.json')
 		self.get_json_data = self.get_json()
 
 	#获取json文件

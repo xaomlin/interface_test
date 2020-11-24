@@ -3,18 +3,19 @@ import xlrd
 from xlutils.copy import copy
 from util.opea_case_excel import OperaCaseExcel
 from util.common_util import CommonUtil
-# from opea_case_excel import OperaCaseExcel
+import os
+work_path = os.path.abspath('.')
 class OperationExcel(object):
-	def __init__(self,file_name = None,sheet_id = 0):
+	def __init__(self, file_name=None, sheet_id=0):
 		#case_excel返回的case_name、json_name列表
 		oce = OperaCaseExcel()
 		self.res = oce.get_case_excel_name()
 		file_name = self.res[0]
 		if file_name:
-			self.file_name = '../data_config/' + file_name
+			self.file_name = os.path.join(work_path,'data_config',file_name)
 			self.sheet_id = sheet_id
 		else:
-			self.file_name = '../data_config/inte.xlsx'
+			self.file_name = os.path.join(work_path,'data_config/inte.xlsx')
 			self.sheet_id = 0
 		self.getData = self.get_data()
 
@@ -35,17 +36,22 @@ class OperationExcel(object):
 		return cell_value
 
 	#写入数据
-	def write_value(self,row,col,value):
+	def write_value(self, row, col, value):
 		#获取当前时间
 		lotime = CommonUtil.get_localtime(self)
 		read_data = xlrd.open_workbook(self.file_name)
 		write_data = copy(read_data)
 		write_sheet_data = write_data.get_sheet(0)
-		write_sheet_data.write(row,col,value)
-		write_data.save('../result/' + lotime + self.res[0])
+		write_sheet_data.write(row, col, value)
+		# save_file = os.path.join(work_path,'result',lotime,self.res[0])
+		# n = self.res[0].split('.')
+		# save_name = os.path.join(work_path,'result',lotime,n[0]+'.xls')
+		# write_data.save(save_name)
+		place = os.path.join(work_path,'/result')
+		write_data.save(place + lotime + self.res[0])
 
 	#根据某一列的内容
-	def get_col_data(self,col_id = None):
+	def get_col_data(self,col_id=None):
 		if col_id:
 			cols = self.getData.col_values(col_id)
 		else:

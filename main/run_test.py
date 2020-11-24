@@ -9,6 +9,7 @@ class RunTest(object):
 		self.run = RunMain()
 		self.getdata = GetData()
 		self.commonutil = CommonUtil()
+
 	def go_to_run(self):
 		p,f,count = 0,0,0
 		#获取行数
