@@ -1,9 +1,8 @@
 #coding:utf-8
 import requests
 import json
+requests.packages.urllib3.disable_warnings()
 class RunMain(object):
-
-
 	def run_get(self,url,data = None,headers = None):
 		res = None
 		if headers:

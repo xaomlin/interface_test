@@ -22,7 +22,7 @@ class OperaCaseExcel(object):
 				json_name = table.cell_value(i,2)
 				res.append(case_name)
 				res.append(json_name)
-				print(res[0],res[1])
+				# print(res[0],res[1])
 		return res
 
 

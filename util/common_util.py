@@ -16,8 +16,8 @@ class CommonUtil(object):
 		return flag
 	#获取当前时间
 	def get_localtime(self):
-		# res = time.strftime('%Y%m%d%H%M%S',time.localtime())
-		res = time.strftime('%Y%m%d',time.localtime())
+		res = time.strftime('%Y%m%d%H%M%S',time.localtime())
+		#res = time.strftime('%Y%m%d',time.localtime())
 		return res
 if __name__ == '__main__':
 	c = CommonUtil()
