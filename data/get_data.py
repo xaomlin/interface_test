@@ -5,8 +5,9 @@ from util.operation_json import OperationJson
 
 class GetData(object):
 	
-	def __init__(self):
-		self.opera_excel = OperationExcel()
+	def __init__(self,xlsx):
+		print(xlsx)
+		self.opera_excel = OperationExcel(xlsx)
 
 	#获取行数
 	def get_case_line(self):
@@ -18,9 +19,9 @@ class GetData(object):
 		col = dataconfig.get_isrun()
 		is_run = self.opera_excel.get_cell_value(row,col)
 		if is_run == 'yes':
-			flag =  True
+			flag = True
 		else:
-			flag =  False
+			flag = False
 		return flag
 		
 	#判断是否携带cookie
@@ -63,8 +64,8 @@ class GetData(object):
 		return data
 
 	#通过请求数据关键字从json获取请求数据
-	def getdata(self,row):
-		opera_json = OperationJson()
+	def getdata(self,row,json_data_name=None):
+		opera_json = OperationJson(json_data_name)
 		request_key = self.get_request_data(row)
 		request_data = opera_json.get_data(request_key)
 		if request_data == '' :

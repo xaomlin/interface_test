@@ -1,10 +1,10 @@
 #coding:utf-8
 import unittest
 import json
-import HTMLTestRunner
+import base.HTMLTestRunner
 from unittest import mock
-from demoClass import RunMain
-from mock_demo import mock_test
+from base.demoClass import RunMain
+from base.mock_demo import mock_test
 
 class TestMethod(unittest.TestCase):
 

@@ -1,21 +1,17 @@
 #coding:utf-8
 import xlrd
 from xlutils.copy import copy
-from util.opea_case_excel import OperaCaseExcel
 from util.common_util import CommonUtil
 import os
-work_path = os.path.abspath('.')
+work_path = os.path.abspath('..')
 class OperationExcel(object):
-	def __init__(self, file_name=None, sheet_id=0):
-		#case_excel返回的case_name、json_name列表
-		oce = OperaCaseExcel()
-		self.res = oce.get_case_excel_name()
-		file_name = self.res[0]
+	def __init__(self,file_name=None,sheet_id=0):
+		print(file_name)
 		if file_name:
-			self.file_name = os.path.join(work_path,'data_config',file_name)
+			self.file_name = os.path.join(work_path,'data_config/xlsx文件',file_name)
 			self.sheet_id = sheet_id
 		else:
-			self.file_name = os.path.join(work_path,'data_config/inte.xlsx')
+			self.file_name = os.path.join(work_path,'data_config/inter.xlsx')
 			self.sheet_id = 0
 		self.getData = self.get_data()
 
@@ -48,7 +44,7 @@ class OperationExcel(object):
 		# save_name = os.path.join(work_path,'result',lotime,n[0]+'.xls')
 		# write_data.save(save_name)
 		place = os.path.join(work_path,'/result')
-		write_data.save(place + lotime + self.res[0])
+		write_data.save(place + lotime )
 
 	#根据某一列的内容
 	def get_col_data(self,col_id=None):

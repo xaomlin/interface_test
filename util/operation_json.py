@@ -3,16 +3,13 @@
 from util.opea_case_excel import OperaCaseExcel
 import json
 import os
-work_path = os.path.abspath('.')
+work_path = os.path.abspath('..')
 
 class OperationJson(object):
 	def __init__(self,json_files = None):
 		#获取json文件名
-		oc = OperaCaseExcel()
-		res = oc.get_case_excel_name()
-		json_files = res[1]
 		if json_files:
-			self.json_files = os.path.join(work_path,'data_config',json_files)
+			self.json_files = os.path.join(work_path,'data_config/json文件',json_files)
 		else:
 			self.json_files = os.path.join(work_path,'data_config/interface.json')
 		self.get_json_data = self.get_json()

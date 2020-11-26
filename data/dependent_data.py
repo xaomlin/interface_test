@@ -5,6 +5,7 @@ from util.operation_excel import OperationExcel
 from base.run_main import RunMain
 from data.get_data import GetData
 from jsonpath_rw import jsonpath,parse
+from util.opea_case_excel import OperaCaseExcel
 
 class DependentData(object):
 	def __init__(self,case_id):

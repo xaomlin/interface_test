@@ -6,7 +6,7 @@ class RunMain:
 	# 	self.res = self.run_main(method,url,data)
 
 	def send_post(self,url ,data,headers = None):
-		res = requests.post(url = url,data = data,headers=None)
+		res = requests.post(url = url,data = data,headers=None,)
 		return res.json()
 		# return json.dumps(res,indent =2,sort_keys = True)
 	# print(send_post(url ,data))
