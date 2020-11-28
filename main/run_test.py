@@ -55,7 +55,7 @@ class RunTest(object):
 						# print(data)
 					print(methon,url,data)
 					res = self.run.run_main(methon,url,data,cookie)
-					logger = logger.info('1')
+					logger = logger.info('为什么会输出那么多次？')
 					# print(res)
 					if self.commonutil.is_contain(expect,res):
 						getdata.write_result(j,'pass')
