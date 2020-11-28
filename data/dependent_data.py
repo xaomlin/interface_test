@@ -48,6 +48,8 @@ class DependentData(object):
 		# madle = json_exe.find(response_data)
 		# return [match.value for math in madle][0]
 		return [match.value for match in json_exe.find(res_data)][0]
+
+
 	def test1(self):
 		jsonpath_expr = parse('ortherData.[0].userNo')
 		data = {  "code": 200,  "count": 0,  "data": "",  "errorData": "",  "isPage": 0,

@@ -3,10 +3,9 @@ import xlrd
 from xlutils.copy import copy
 from util.common_util import CommonUtil
 import os
-work_path = os.path.abspath('..')
+work_path = os.path.abspath('.')
 class OperationExcel(object):
 	def __init__(self,file_name=None,sheet_id=0):
-		print(file_name)
 		if file_name:
 			self.file_name = os.path.join(work_path,'data_config/xlsx文件',file_name)
 			self.sheet_id = sheet_id

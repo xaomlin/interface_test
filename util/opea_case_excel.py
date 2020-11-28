@@ -2,8 +2,7 @@
 import xlrd
 import os
 
-work_path = os.path.abspath('..')
-print(work_path)
+work_path = os.path.abspath('.')
 class OperaCaseExcel(object):
 
 	def get_case_name(self):

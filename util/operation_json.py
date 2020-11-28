@@ -3,7 +3,7 @@
 from util.opea_case_excel import OperaCaseExcel
 import json
 import os
-work_path = os.path.abspath('..')
+work_path = os.path.abspath('.')
 
 class OperationJson(object):
 	def __init__(self,json_files = None):
